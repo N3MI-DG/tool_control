@@ -151,7 +151,7 @@ def changeToolTemp(tool, f_index, status):
     elif status == "dock_cool":
         current_temp = first_layer_temperature[tool] if layer_number == 1 else temperature[tool]
         temp         = current_temp - dock_delta
-        msg          = f"Cooling xT{tool} to {temp}"
+        msg          = f"Cooling T{tool} to {temp}"
 
     elif status in ["heat", "dock_heat"]:
         temp = first_layer_temperature[tool] if layer_number == 1 else temperature[tool]
@@ -195,10 +195,10 @@ def changeFanSpeed(tool, f_index, status):
 
 def toolEnd(tool, f_index):
     insert_gcodes = [
-        f"RESPOND TYPE=echo MSG=\"Turning off T{tool}\"\n"
-        f"M104 T{tool} S0\n",
-        f"M106 T{tool} S0\n",
-        f"SET_STEPPER_ENABLE STEPPER=extruder{tool if tool > 0 else ''} ENABLE=0\n"
+        f"RESPOND TYPE=echo MSG=\"Turning off T{tool}\""
+        f"M104 T{tool} S0",
+        f"M106 T{tool} S0",
+        f"SET_STEPPER_ENABLE STEPPER=extruder{tool if tool > 0 else ''} ENABLE=0"
     ]
 
     for i, new_line in enumerate(insert_gcodes):

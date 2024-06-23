@@ -5,7 +5,7 @@ A PrusaSlicer post processing script that allows you to control toolhead temps a
 
 #### Tools that are not required until later in the print will have their heaters turned off at start of print
 
-This helps stop filament becomming liquid in the nozzle while waiting potentially hours before use.
+This helps stop filament becoming liquid in the nozzle while waiting potentially hours before use.
 
 #### Preemptively heats tools at a set interval (~120 seconds by default) before they are needed
 
