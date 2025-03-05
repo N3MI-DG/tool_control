@@ -195,7 +195,7 @@ def changeFanSpeed(tool, f_index, status):
 
 def toolEnd(tool, f_index):
     insert_gcodes = [
-        f"RESPOND TYPE=echo MSG=\"Turning off T{tool}\""
+        f"RESPOND TYPE=echo MSG=\"Turning off T{tool}\"",
         f"M104 T{tool} S0",
         f"M106 T{tool} S0",
         f"SET_STEPPER_ENABLE STEPPER=extruder{tool if tool > 0 else ''} ENABLE=0"
